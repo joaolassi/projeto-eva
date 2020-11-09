@@ -2,7 +2,7 @@ package com.eva.config.property;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
-@ConfigurationProperties("eva")
+@ConfigurationProperties("evarts")
 public class EvaApiProperty {
 
 	private String originPermitida = "http://localhost:4200";
