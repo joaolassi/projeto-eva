@@ -24,14 +24,12 @@ public class TokenResource {
 	@DeleteMapping("/revoke")
 	public void revoke(HttpServletRequest req, HttpServletResponse resp) {
 		Cookie cookie = new Cookie("refreshToken", null);
-		Cookie cookie2 = new Cookie("Samesite=None", "Secure");
 		cookie.setHttpOnly(true);
 		cookie.setSecure(evaApiProperty.getSeguranca().isEnableHttps()); // TODO: Em producao sera true
 		cookie.setPath(req.getContextPath() + "/oauth/token");
 		cookie.setMaxAge(0);
 		
 		resp.addCookie(cookie);
-		resp.addCookie(cookie2);
 		resp.setStatus(HttpStatus.NO_CONTENT.value());
 	}
 	

@@ -19,11 +19,14 @@ import org.springframework.security.web.authentication.www.BasicAuthenticationFi
 
 import com.eva.cors.CorsFilter;
 
+//@Profile("oauth-security")
+//@Configuration
+//@EnableWebSecurity
+//@EnableResourceServer
+//@EnableGlobalMethodSecurity(prePostEnabled = true)
+
 @Profile("oauth-security")
 @Configuration
-@EnableWebSecurity
-@EnableResourceServer
-@EnableGlobalMethodSecurity(prePostEnabled = true)
 public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
 
 	@Autowired
@@ -42,8 +45,6 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
 				.and()
 			.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
 			.csrf().disable();
-		http.addFilterAfter(new CorsFilter(), BasicAuthenticationFilter.class);
-
 	}
 	
 	@Override
