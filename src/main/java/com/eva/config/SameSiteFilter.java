@@ -14,7 +14,7 @@ public class SameSiteFilter extends GenericFilterBean {
     @Override
     public void doFilter (ServletRequest request,  ServletResponse response, FilterChain chain) throws IOException, ServletException {
         HttpServletResponse resp = (HttpServletResponse) response;
-        resp.setHeader("Set-Cookie", "SameSite=strict; Secure; HttpOnly;");
+        resp.setHeader("Set-Cookie", "SameSite=strict; Secure;");
         chain.doFilter(request, response);
     }
 }
