@@ -40,8 +40,7 @@ public class CorsFilter implements Filter {
 		
 		if ("OPTIONS".equals(request.getMethod()) && evaApiPorperty.getOriginPermitida().equals(request.getHeader("Origin"))) {
 			response.setHeader("Access-Control-Allow-Methods", "POST, GET, DELETE, PUT, OPTIONS");
-			response.setHeader("Access-Control-Allow-Headers", "Authorization, Content-Type, Accept, Set-Cookie");
-	        response.setHeader("Set-Cookie",  "Secure; HttpOnly; SameSite=None");
+			response.setHeader("Access-Control-Allow-Headers", "Authorization, Content-Type, Accept");
 
         	response.setHeader("Access-Control-Max-Age", "3600");
 				
