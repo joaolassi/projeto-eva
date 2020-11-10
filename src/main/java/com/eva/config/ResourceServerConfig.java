@@ -39,7 +39,8 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
 				.antMatchers("/artes").permitAll()
 				.anyRequest().authenticated()
 				.and()
-			.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+			.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
+			.csrf().disable();
 
 	}
 	
