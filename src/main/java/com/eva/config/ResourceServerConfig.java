@@ -15,6 +15,9 @@ import org.springframework.security.oauth2.config.annotation.web.configuration.E
 import org.springframework.security.oauth2.config.annotation.web.configuration.ResourceServerConfigurerAdapter;
 import org.springframework.security.oauth2.config.annotation.web.configurers.ResourceServerSecurityConfigurer;
 import org.springframework.security.oauth2.provider.expression.OAuth2MethodSecurityExpressionHandler;
+import org.springframework.security.web.authentication.www.BasicAuthenticationFilter;
+
+import com.eva.cors.CorsFilter;
 
 @Profile("oauth-security")
 @Configuration
@@ -39,6 +42,8 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
 				.and()
 			.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
 			.csrf().disable();
+		http.addFilterAfter(new CorsFilter(), BasicAuthenticationFilter.class);
+
 	}
 	
 	@Override

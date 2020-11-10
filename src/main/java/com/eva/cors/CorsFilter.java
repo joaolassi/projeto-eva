@@ -36,6 +36,7 @@ public class CorsFilter implements Filter {
 		
 		response.setHeader("Access-Control-Allow-Origin", evaApiPorperty.getOriginPermitida());
         response.setHeader("Access-Control-Allow-Credentials", "true");
+        response.setHeader("Set-Cookie", "HttpOnly; SameSite=strict");
 		
 		if ("OPTIONS".equals(request.getMethod()) && evaApiPorperty.getOriginPermitida().equals(request.getHeader("Origin"))) {
 			response.setHeader("Access-Control-Allow-Methods", "POST, GET, DELETE, PUT, OPTIONS");
