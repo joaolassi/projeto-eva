@@ -46,7 +46,7 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
 				.refreshTokenValiditySeconds(3600 * 24)
 			.and()
 				.withClient("p")
-				.secret("$2a$10$B5ojOty.RhqkAjwwLDRiw.UKViMCb0jUEgnG0mInnaLequSiBNfw6")
+				.secret("$2a$10$B5ojOty.RhqkAjgwwLDRiw.UKViMCb0jUEgnG0mInnaLequSiBNfw6")
 				//escopo que limita acesso
 				.scopes("read", "write")
 				//app recebe usuário e senha
