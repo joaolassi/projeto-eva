@@ -34,13 +34,13 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
 	
 	@Override
 	public void configure(HttpSecurity http) throws Exception {
-		http.addFilterAfter(new SameSiteFilter(), BasicAuthenticationFilter.class);
 		http.authorizeRequests()
 				.antMatchers("/artes").permitAll()
 				.anyRequest().authenticated()
 				.and()
 			.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
-			.csrf().disable();
+			.csrf().disable()
+		.addFilterAfter(new SameSiteFilter(), BasicAuthenticationFilter.class);
 
 	}
 	
