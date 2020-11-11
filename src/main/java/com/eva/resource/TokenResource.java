@@ -25,6 +25,8 @@ public class TokenResource {
 	public void revoke(HttpServletRequest req, HttpServletResponse resp) {
 		Cookie cookie = new Cookie("refreshToken", null);
 		cookie.setHttpOnly(true);
+		cookie.setValue("SameSite=None");
+		cookie.setValue("Secure");
 		cookie.setSecure(evaApiProperty.getSeguranca().isEnableHttps()); // TODO: Em producao sera true
 		cookie.setPath(req.getContextPath() + "/oauth/token");
 		cookie.setMaxAge(0);
