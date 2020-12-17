@@ -25,7 +25,8 @@ public class CorsFilter implements Filter {
 	@Autowired
 	private EvaApiProperty evaApiPorperty;
 
-	private String originPermitida = "https://evarts.herokuapp.com"; // TODO: Configurar para diferentes ambientes
+	// private String originPermitida = "https://evarts.herokuapp.com"; 
+// TODO: Configurar para diferentes ambientes
 	
 	@Override
 	public void doFilter(ServletRequest req, ServletResponse resp, FilterChain chain)
@@ -34,7 +35,7 @@ public class CorsFilter implements Filter {
 		HttpServletRequest request = (HttpServletRequest) req;
 		HttpServletResponse response = (HttpServletResponse) resp;
 		
-		response.setHeader("Access-Control-Allow-Origin", originPermitida);
+		response.setHeader("Access-Control-Allow-Origin", evaApiPorperty.getOriginPermitida());
         response.setHeader("Access-Control-Allow-Credentials", "true");
 		
 		if ("OPTIONS".equals(request.getMethod()) && originPermitida.equals(request.getHeader("Origin"))) {
